@@ -1,19 +1,8 @@
- $(document).ready(function(){
-
-  function initialize() {
-    //var input = document.getElementById('arrival');
-    var input1 = document.getElementById('departure');
-    var options = {componentRestrictions: {country: 'in'}};         
-    //new google.maps.places.Autocomplete(input, options);
-    new google.maps.places.Autocomplete(input1, options);
-}
-
-google.maps.event.addDomListener(window, 'load',initialize);
-});
-
- $(document).ready(function(){
+$(document).ready(function(){
 
   $("#offer_ride_form").submit(function() {
+
+    alert('now offer ride');
 
     var data = {
       'person_name': $('#person_name').val(),
@@ -50,6 +39,8 @@ google.maps.event.addDomListener(window, 'load',initialize);
 
 
 $("#find_ride_form").submit(function() {
+
+    alert('now ride form');
 
     $('.custom-div').empty();
 
@@ -111,71 +102,3 @@ $("#register_user_form").submit(function() {
   });
 
 });
-
-/*document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    navigator.geolocation.getCurrentPosition(onSuccess,Error);
-}
-function onSuccess(position) {
-    var lat = pos.coords.latitude;
-    var lng = pos.coords.longitude;
-    alert("lat : "+lat+" lng : " +lng);
-
-}
-
-function onError(error) {
-    alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
-}
-*/
-
-
-/* GEO LOCATION */
-
-/*function getLocation() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError1);
-    $('#ajax-loader-find-ride').show();
-}
-
-// onSuccess Geolocation
-//
-function onSuccess(position) {
-
-    /*var element = document.getElementById('geolocation');
-   element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                        'Longitude: '          + position.coords.longitude             + '<br />' +
-                        'Altitude: '           + position.coords.altitude              + '<br />' +
-                        'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                        'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                        'Heading: '            + position.coords.heading               + '<br />' +
-                        'Speed: '              + position.coords.speed                 + '<br />' +
-                        'Timestamp: '          + position.timestamp                    + '<br />';*/
-
-        /*var request = new XMLHttpRequest();
-
-        var method = 'GET';
-        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&sensor=true';
-        var async = true;
-
-        request.open(method, url, async);
-        request.onreadystatechange = function(){
-          if(request.readyState == 4 && request.status == 200){
-            var data = JSON.parse(request.responseText);
-            var address = data.results[0];
-            //alert(address.formatted_address);
-            //var result = address.formatted_address.split(',');
-           //$('#departure').val(result[2]);
-           //alert(address.address_components[3].long_name);
-           $('#departure').val(address.address_components[3].long_name);
-           $('#ajax-loader-find-ride').hide();
-          }
-        };
-        request.send();
-}
-
-// onError Callback receives a PositionError object
-//
-function onError1(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
-*/
